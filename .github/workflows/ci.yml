@@ -8,8 +8,6 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v1
-      - name: ssh
-        run: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
       - name: Install sshpass
         run: sudo apt-get install sshpass
       - name: Push to server
