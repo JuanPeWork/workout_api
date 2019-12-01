@@ -11,5 +11,10 @@ jobs:
       - name: Install sshpass
         run: sudo apt-get install sshpass
       - name: Push to server
-        run: sshpass -p ${{ secrets.SERVER_PASSWORD }} git push -f ssh://root@${{ secrets.SERVER_IP }}/var/www/html/workout_api/.git origin/master:master
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: root
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: cd /var/www/html/workout_api/ && git pull
     
