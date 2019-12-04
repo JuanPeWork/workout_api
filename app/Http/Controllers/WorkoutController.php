@@ -27,7 +27,7 @@ class WorkoutController extends Controller
         return response()->json($data, $data['code']);
     }
 
-    //Obtener rutinas de un usuario
+    //Obtener obtener una rutina de un usuario
     public function getWorkout($id){
         $workout = Workout::where(['id' => $id])->get();
 

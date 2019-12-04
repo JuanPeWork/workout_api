@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class TrainingSessionTypeController extends Controller
 {
+    // Obtener tipos de sesiones de entrenamiento
     public function listTrainingSessionType(){
         $training_session_type = TrainingSessionType::all();
 
