@@ -33,16 +33,20 @@ Route::get('user/{user_id}/workouts/{id}', 'WorkoutController@getWorkout');
 //? function Eliminar
 
 //WORKOUT_TYPE
-Route::get('workout-type/', 'WorkoutTypeController@listWorkoutType');
+Route::get('workout-type', 'WorkoutTypeController@listWorkoutType');
 
 //TRAINING_SESSION
 //! Crear
+Route::post('/training-session', 'TrainingSessionController@create');
+
 //! Leer
+Route::get('workouts/{workout_id}/training-session/', 'TrainingSessionController@getTrainingSessionWorkout');
+
 //? Eliminar
 //? Editar
 
 //TRAINING_SESSION_TYPE
-Route::get('training-session-type/', 'TrainingSessionTypeController@listTrainingSessionType');
+Route::get('training-session-type', 'TrainingSessionTypeController@listTrainingSessionType');
 
 //Exercise
 //! Crear 

@@ -59,8 +59,8 @@ class WorkoutController extends Controller
 
             // Validamos los datos 
             $validate = \Validator::make($params, [
-                'user_id' => 'required|alpha_num',
-                'workout_type_id' => 'required|alpha_num',
+                'user_id' => 'required|numeric',
+                'workout_type_id' => 'required|numeric',
                 'name' => 'required',
                 'num_days' => 'required|numeric|min:1|max:7',
             ]);
