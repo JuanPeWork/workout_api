@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+use App\Http\Middleware\ApiAuthMiddleware;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -46,7 +47,7 @@ Route::get('workouts/{workout_id}/training-session/', 'TrainingSessionController
 //? Editar
 
 //TRAINING_SESSION_TYPE
-Route::get('training-session-type', 'TrainingSessionTypeController@listTrainingSessionType');
+Route::get('training-session-type', 'TrainingSessionTypeController@listTrainingSessionType')->middleware(ApiAuthMiddleware::class);
 
 //Exercise
 //! Crear 
