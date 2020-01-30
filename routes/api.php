@@ -21,27 +21,26 @@ use App\Http\Middleware\ApiAuthMiddleware;
 //USER
 Route::post('user/create', 'UserController@create');
 Route::post('user/login', 'UserController@login');
-Route::post('user/token', 'UserController@checkToken');
 //? function Editar
 //? function Leer
 
 
 //WORKOUT
-Route::post('user/{user_id}/workout/create', 'WorkoutController@create');
-Route::get('user/{user_id}/workouts', 'WorkoutController@getUserWorkouts');
-Route::get('user/{user_id}/workouts/{id}', 'WorkoutController@getWorkout');
+Route::post('user/{user_id}/workout/create', 'WorkoutController@create')->middleware(ApiAuthMiddleware::class);
+Route::get('user/{user_id}/workouts', 'WorkoutController@getUserWorkouts')->middleware(ApiAuthMiddleware::class);
+Route::get('user/{user_id}/workouts/{id}', 'WorkoutController@getWorkout')->middleware(ApiAuthMiddleware::class);
 //? function Editar
 //? function Eliminar
 
 //WORKOUT_TYPE
-Route::get('workout-type', 'WorkoutTypeController@listWorkoutType');
+Route::get('workout-type', 'WorkoutTypeController@listWorkoutType')->middleware(ApiAuthMiddleware::class);
 
 //TRAINING_SESSION
 //! Crear
-Route::post('/training-session', 'TrainingSessionController@create');
+Route::post('/training-session', 'TrainingSessionController@create')->middleware(ApiAuthMiddleware::class);
 
 //! Leer
-Route::get('workouts/{workout_id}/training-session/', 'TrainingSessionController@getTrainingSessionWorkout');
+Route::get('workouts/{workout_id}/training-session/', 'TrainingSessionController@getTrainingSessionWorkout')->middleware(ApiAuthMiddleware::class);
 
 //? Eliminar
 //? Editar
