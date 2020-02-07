@@ -49,6 +49,7 @@ Route::get('', ['middleware' => 'cors', function() {
     //TRAINING_SESSION_TYPE
     Route::get('training-session-type', 'TrainingSessionTypeController@listTrainingSessionType')->middleware(ApiAuthMiddleware::class);
 
+    
     //Exercise
     //! Crear 
     //! Leer 
