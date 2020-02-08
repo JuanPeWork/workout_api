@@ -111,4 +111,27 @@ class UserController extends Controller
         
     }
 
+    public function checkToken(Request $request) {
+
+        $token = $request->header('Authorization');
+        $jwtAuth = new \JwtAuth();
+
+        $getToken = $jwtAuth->checkToken($token);
+        if($getToken) {
+            $data = array(
+                'status' => 'success',
+                'code' => 200,
+                'message' => 'Acceso autorizado'
+            );
+        } else {
+            $data = array(
+                'status' => 'error',
+                'code' => 404,
+                'message' => 'El token ha caducado'
+            );
+        }
+
+        return response()->json($data, $data['code']);        
+    }
+
 }
