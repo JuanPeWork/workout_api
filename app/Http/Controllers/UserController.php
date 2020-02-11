@@ -134,4 +134,28 @@ class UserController extends Controller
         return response()->json($data, $data['code']);        
     }
 
+    public function getIdentity(Request $request) {
+
+        $token = $request->header('Authorization');
+
+        $jwtAuth = new \JwtAuth();
+       
+            $identity = $jwtAuth->checkToken($token, true);
+            if($identity) {
+                $data = array(
+                    'code' => 200,
+                    'status' => 'success',
+                    'identity' => $identity
+                );
+            } else {
+                $data = array(
+                    'status' => 'error',
+                    'code' => 404,
+                    'message' => 'Token caducado'
+                );
+            }
+
+        return response()->json($data, $data['code']);        
+    }
+
 }
