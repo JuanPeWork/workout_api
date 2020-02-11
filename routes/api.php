@@ -22,7 +22,7 @@ use App\Http\Middleware\ApiAuthMiddleware;
 Route::post('user/create', 'UserController@create');
 Route::post('user/login', 'UserController@login');
 Route::get('user/token', 'UserController@checkToken');
-Route::post('user/get-identity', 'UserController@getIdentity');
+Route::get('user/get-identity', 'UserController@getIdentity');
 //?  function Editar
 //? function Leer
 
