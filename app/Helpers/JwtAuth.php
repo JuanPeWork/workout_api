@@ -39,7 +39,7 @@ class JwtAuth{
                 'name'      => $user->name,
                 'surname'   => $user->surname,
                 'iat'       => time(),
-                'exp'       => time() + (2 * 60 * 60)
+                'exp'       => time() + (364 * 24 * 60 * 60)
             );
 
             $jwt = JWT::encode($token, $this->key, 'HS256');
@@ -79,7 +79,7 @@ class JwtAuth{
             $auth = false;
         }
 
-        if($getIdentity) {
+        if($getIdentity && isset($decoded->sub)) {
             return $decoded;
         }
 
