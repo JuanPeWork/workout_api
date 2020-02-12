@@ -84,6 +84,7 @@ class JwtAuth{
         }
 
         return $auth;
+        
     }
 
 }
