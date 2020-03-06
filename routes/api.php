@@ -52,8 +52,15 @@ Route::get('training-session-type', 'TrainingSessionTypeController@listTrainingS
 
 //Exercise
 //! Crear 
-//! Leer 
-//? Editar
+Route::post('/exercise', 'ExerciseController@create')->middleware(ApiAuthMiddleware::class);
+
+//! Leer
+Route::get('/training-session/{training_session_id}/exercise', 'ExerciseController@getExercises')->middleware(ApiAuthMiddleware::class);
+
+//! Editar
+Route::put('/exercise/{exercise_id}', 'ExerciseController@update')->middleware(ApiAuthMiddleware::class);
+Route::put('/exercise/volume/{exercise_id}', 'ExerciseController@updateExerciseVolume')->middleware(ApiAuthMiddleware::class);
+
 //? Eliminar
 
 //Exercise_type
