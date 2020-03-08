@@ -10,7 +10,10 @@ class ExerciseController extends Controller
 {
     //
     public function getExercises($training_session_id) {
-        $exercise = Exercise::where(['training_session_id' => $training_session_id])->get();
+        $trainingSession = Exercise::join('exercise_type', 'exercise_type.id', '=', 'exercise.exercise_type_id')
+        ->select('exercise.*', 'exercise_type.name as type_name')
+        ->where(['training_session_id' => $training_session_id])
+        ->get();
 
         if($exercise->isEmpty()){
             $data = array(
