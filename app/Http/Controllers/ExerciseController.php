@@ -168,43 +168,4 @@ class ExerciseController extends Controller
         return response()->json($data, $data['code']);
 
     }
-    
-        public function updateRepts($exercise_id, Request $request) {
-
-        $json = $request->input('repts', null);
-        $params_array = json_decode($json, true);
-
-         // Validar los datos
-         $validate = \Validator::make($params_array, [
-            'repts' =>'string|nullable'
-        ]);
-
-            if(!$validate->fails()) {
-                
-                // Actualizar en base de datos
-                $exercise_update = Exercise::where('id', $exercise_id)->update($params_array);
-
-                // Devolver array con resultado
-                $data = array(
-                    'code' => 200,
-                    'status' => 'success',
-                    'message' => 'Repeticiones actualizado correctamente',
-                    'exercise' => $exercise_id,
-                    'changes' => $params_array
-                );
-
-            } else {
-                $data = array(
-                    'code' => 404,
-                    'status' => 'error',
-                    'message' => 'Los datos enviados no son correctos',
-                    'errors' => $validate->errors()
-                );
-            }
-
-        return response()->json($data, $data['code']);
-
-    }
-
-
 }
