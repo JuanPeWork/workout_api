@@ -176,7 +176,7 @@ class ExerciseController extends Controller
 
          // Validar los datos
          $validate = \Validator::make($params_array, [
-            'repts' =>'string|nullable',
+            'repts' =>'string|nullable'
         ]);
 
             if(!$validate->fails()) {
