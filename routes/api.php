@@ -59,7 +59,7 @@ Route::get('/training-session/{training_session_id}/exercise', 'ExerciseControll
 
 //! Editar
 Route::post('/exercise/{exercise_id}', 'ExerciseController@update')->middleware(ApiAuthMiddleware::class);
-Route::post('/exercise/volume/{exercise_id}', 'ExerciseController@updateExerciseVolume')->middleware(ApiAuthMiddleware::class);
+Route::post('/exercise/volume/{exercise_id}', 'ExerciseController@updateExerciseVolume');
 
 //? Eliminar
 
