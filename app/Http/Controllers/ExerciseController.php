@@ -161,6 +161,7 @@ class ExerciseController extends Controller
                     'code' => 404,
                     'status' => 'error',
                     'message' => 'Los datos enviados no son correctos',
+                    'changes' =>  $params_array,
                     'errors' => $validate->errors()
                 );
             }
