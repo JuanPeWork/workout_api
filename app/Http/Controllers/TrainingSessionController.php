@@ -12,6 +12,7 @@ class TrainingSessionController extends Controller
         $trainingSession = TrainingSession::join('training_session_type', 'training_session_type.id', '=', 'training_session.training_session_type_id')
                             ->select('training_session.*', 'training_session_type.name as type_name')
                             ->where(['workout_id' => $workout_id])
+                            ->orderBy('day', 'asc')
                             ->get();
 
         if($trainingSession->isEmpty()){
