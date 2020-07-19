@@ -45,7 +45,8 @@ class ExerciseController extends Controller
                 'exercise_type_id' => 'required|numeric',
                 'training_session_id' => 'required|numeric',
                 'sets' => 'required|numeric',
-                'weight' => 'numeric|nullable'
+                'weight' => 'numeric|nullable',
+                'max_repts' => 'required|numeric',
             ]);
 
             if(!$validate->fails()){
@@ -57,6 +58,7 @@ class ExerciseController extends Controller
                 $exercise->training_session_id = $params['training_session_id'];
                 $exercise->sets = $params['sets'];
                 $exercise->weight = $params['weight'];
+                $exercise->weight = $params['max_repts'];
 
                 //Guardamos los datos
                 $exercise->save();
