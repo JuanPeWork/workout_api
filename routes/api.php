@@ -65,6 +65,7 @@ Route::post('/exercise/volume/{exercise_id}', 'ExerciseController@updateExercise
 
 //Exercise_type
 //* Leer
+Route::get('/exercise-type/', 'ExerciseTypeController@listExercisesType')->middleware(ApiAuthMiddleware::class);
 
 // Muscle Group
 //? Leer

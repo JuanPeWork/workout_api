@@ -10,10 +10,9 @@ class ExerciseTypeController extends Controller
 {
     //
     public function listExercisesType() {
-        $training_session_type = ExerciseType::all()->orderBy('id', 'asc')
-        ->get();;
+        $exerciseType = ExerciseType::all()->orderBy('id', 'asc')->get();;
 
-        if($training_session_type->isEmpty()){
+        if($exerciseType->isEmpty()){
             $data = array(
                 'status' => 'error',
                 'code' => '404',
@@ -23,7 +22,7 @@ class ExerciseTypeController extends Controller
             $data = array(
                 'status' => 'success',
                 'code' => '200',
-                'data' => $training_session_type
+                'data' => $exerciseType
             );
         }
         return response()->json($data, $data['code']);
