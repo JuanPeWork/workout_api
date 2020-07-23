@@ -10,7 +10,7 @@ class ExerciseTypeController extends Controller
 {
     //
     public function listExercisesType() {
-        $exerciseType = ExerciseType::all()->orderBy('id', 'asc')->get();;
+        $exerciseType = ExerciseType::all()->orderBy('id', 'asc')->get();
 
         if($exerciseType->isEmpty()){
             $data = array(
