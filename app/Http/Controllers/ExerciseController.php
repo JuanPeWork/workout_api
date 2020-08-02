@@ -58,7 +58,7 @@ class ExerciseController extends Controller
                 $exercise->training_session_id = $params['training_session_id'];
                 $exercise->sets = $params['sets'];
                 $exercise->weight = $params['weight'];
-                $exercise->weight = $params['max_repts'];
+                $exercise->max_repts = $params['max_repts'];
 
                 //Guardamos los datos
                 $exercise->save();
