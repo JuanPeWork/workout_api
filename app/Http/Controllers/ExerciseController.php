@@ -116,7 +116,6 @@ class ExerciseController extends Controller
                     'code' => 200,
                     'status' => 'success',
                     'message' => 'Exercise actualizado correctamente',
-                    'exercise' => $exercise,
                     'changes' => $params_array
                 );
 
