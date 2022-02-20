@@ -19,7 +19,7 @@ class TrainingSessionController extends Controller
             $data = array(
                 'status' => 'error',
                 'code' => '404',
-                'data' => 'No se han obtenido resultados'
+                'data' => 'No se han obtenido resultados '
             );
         } else {
             $data = array(
