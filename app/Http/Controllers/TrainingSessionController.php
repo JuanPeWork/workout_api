@@ -74,7 +74,7 @@ class TrainingSessionController extends Controller
                     'errors' => $validate->errors()
                 );    
             }
-
+ 
         } else {
             $data = array(
                 'status' => 'error',
