@@ -9,9 +9,7 @@ class TrainingSessionController extends Controller
 {
     //Obtener las sesiones de entrenamiento de la rutina
     public function getTrainingSessionWorkout($workout_id){
-        $trainingSession = TrainingSession::join('training_session_type', 'training_session_type.id', '=', 'training_session.training_session_type_id')
-                            ->select('training_session.*', 'training_session_type.name as type_name')
-                            ->where(['workout_id' => $workout_id])
+        $trainingSession = TrainingSession::where(['workout_id' => $workout_id])
                             ->orderBy('day', 'asc')
                             ->get();
 
@@ -47,7 +45,7 @@ class TrainingSessionController extends Controller
             $validate = \Validator::make($params, [
                 'workout_id' => 'required|numeric',
                 'day' => 'required|numeric|min:1|max:7',
-                'session_type_id' => 'required|numeric',
+                'name' => 'required',
             ]);
 
             if(!$validate->fails()){
