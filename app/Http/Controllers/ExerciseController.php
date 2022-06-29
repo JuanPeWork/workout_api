@@ -10,10 +10,7 @@ class ExerciseController extends Controller
 {
     //
     public function getExercises($training_session_id) {
-        $exercise = Exercise::join('exercise_type', 'exercise_type.id', '=', 'exercise.exercise_type_id')
-        ->select('exercise.*', 'exercise_type.name as type_name')
-        ->where(['training_session_id' => $training_session_id])
-        ->get();
+        $exercise = Exercise::where(['training_session_id' => $training_session_id])->get();
 
         if($exercise->isEmpty()){
             $data = array(
@@ -42,7 +39,7 @@ class ExerciseController extends Controller
 
             // Validamos los datos 
             $validate = \Validator::make($params, [
-                'exercise_type_id' => 'required|numeric',
+                'name' => 'required|alpha',
                 'training_session_id' => 'required|numeric',
                 'sets' => 'required|numeric',
                 'weight' => 'numeric|nullable',
@@ -54,7 +51,7 @@ class ExerciseController extends Controller
                 // Creamos un objeto user
                 $exercise = new Exercise();
                 
-                $exercise->exercise_type_id = $params['exercise_type_id'];
+                $exercise->name = $params['name'];
                 $exercise->training_session_id = $params['training_session_id'];
                 $exercise->sets = $params['sets'];
                 $exercise->weight = $params['weight'];
@@ -98,7 +95,7 @@ class ExerciseController extends Controller
          // Validar los datos
          $validate = \Validator::make($params_array, [
             'training_session_id' => 'required|numeric',
-            'exercise_type_id' => 'required|numeric',
+            'name' => 'required|alpha',
             'sets' => 'numeric',
             'repts' =>'string|nullable',
             'weight' =>'numeric',
