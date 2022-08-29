@@ -67,8 +67,10 @@ class UserController extends Controller
     }
 
     public function login(Request $request) {
-
         $json = $request->input('json', null);
+
+        return response()->json($json, 200);
+        exit();
 
         $params = json_decode($json, true);
         
@@ -97,7 +99,7 @@ class UserController extends Controller
             $signup = array(
                 'status' => 'error',
                 'code' => 404,
-                'message' => 'Los datos enviados no son correctos.'.$params 
+                'message' => 'Los datos enviados no son correctos.'
             );
         }
 
