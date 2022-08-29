@@ -72,7 +72,7 @@ class UserController extends Controller
         
         $params = json_decode($json, true);
 
-        return response()->json($params, 200);
+        echo($params);
         exit();
         
         if(!empty($params)) {
