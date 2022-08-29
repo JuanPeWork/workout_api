@@ -71,9 +71,6 @@ class UserController extends Controller
 
         
         $params = json_decode($json, true);
-
-        echo($params);
-        exit();
         
         if(!empty($params)) {
             $validator = \Validator::make($params, [
