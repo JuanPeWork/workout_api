@@ -96,7 +96,7 @@ class UserController extends Controller
             $signup = array(
                 'status' => 'error',
                 'code' => 404,
-                'message' => 'Los datos enviados no son correctos.'
+                'message' => 'Los datos enviados no son correctos.'.$params 
             );
         }
 
