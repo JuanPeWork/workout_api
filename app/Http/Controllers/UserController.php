@@ -67,9 +67,7 @@ class UserController extends Controller
     }
 
     public function login(Request $request) {
-        
-        return response()->json('login', 200);
-        
+
         $json = $request->input('json', null);
 
         $params = json_decode($json, true);
