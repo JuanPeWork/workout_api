@@ -68,11 +68,11 @@ class UserController extends Controller
 
     public function login(Request $request) {
         $json = $request->input('json', null);
-
-        return response()->json($json, 200);
-        exit();
-
+        
         $params = json_decode($json, true);
+
+        return response()->json($params, 200);
+        exit();
         
         if(!empty($params)) {
             $validator = \Validator::make($params, [
